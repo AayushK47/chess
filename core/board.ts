@@ -1,4 +1,4 @@
-import Knight from "./pieces/Knight";
+import Knight from "./pieces/knight";
 import Bishop from "./pieces/bishop";
 import King from "./pieces/king";
 import Pawn from "./pieces/pawn";
@@ -7,7 +7,7 @@ import Rook from "./pieces/rook";
 import Square from "./square";
 
 class Board {
-    private board: Square[][];
+    private board: Square[][] = [];
     constructor() {
         this.createSquares();
         this.putPieces(true);
@@ -45,5 +45,4 @@ class Board {
     }
 }
 
-const board = new Board()
-console.log(board.getBoard())
+export default Board;
