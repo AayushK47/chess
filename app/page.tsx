@@ -1,6 +1,8 @@
+import BoardUI from "../components/board";
+
 function IndexPage() {
     return (
-        <h1>WIP!!!!</h1>
+        <BoardUI />
     )
 }
 
