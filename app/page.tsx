@@ -1,3 +1,4 @@
+"use client"
 import BoardUI from "../components/board";
 
 function IndexPage() {
