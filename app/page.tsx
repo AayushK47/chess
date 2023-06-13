@@ -1,10 +1,8 @@
-"use client"
+"use client";
 import BoardUI from "../components/board";
 
 function IndexPage() {
-    return (
-        <BoardUI />
-    )
+    return <BoardUI />;
 }
 
 export default IndexPage;

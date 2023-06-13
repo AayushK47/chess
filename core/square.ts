@@ -6,7 +6,7 @@ class Square {
     isLight: boolean;
     piece?: Piece | null;
     possibleMove: boolean;
-    
+
     constructor(row: number, column: number, isLight: boolean) {
         this.row = row;
         this.column = column;
@@ -24,7 +24,7 @@ class Square {
     }
 
     hasEnemyPiece(color: boolean) {
-        return (this.piece && this.piece.color !== color) ? true : false ;
+        return this.piece && this.piece.color !== color ? true : false;
     }
 
     isEmptyOrEnemy(color: boolean) {

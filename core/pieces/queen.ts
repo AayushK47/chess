@@ -2,7 +2,7 @@ import Piece from "./piece";
 
 class Queen extends Piece {
     constructor(color: boolean) {
-        super('queen', color);
+        super("queen", color);
     }
 }
 
