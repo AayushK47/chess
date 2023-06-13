@@ -8,10 +8,11 @@ interface SquareUIProps {
     column: number;
     piece?: Piece;
     possibleMove: boolean;
+    getValidMoves?: any;
+    clearSuggestions?: any;
 }
 
-function SquareUI({ isLightSquared, piece, row, column, possibleMove }: SquareUIProps) {
-    const { getValidMoves, clearSuggestions } = useBoard();
+function SquareUI({ isLightSquared, piece, row, column, possibleMove, getValidMoves, clearSuggestions }: SquareUIProps) {
     return (
         <Droppable droppableId={`${String.fromCharCode(65 + column)}${row+1}`}>
             {(provided, snapshot) => (

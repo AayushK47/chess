@@ -20,6 +20,18 @@ class Board {
         this.putPieces(true);
         this.putPieces(false);
     }
+
+    move(initial: [number, number], final: [number, number]) {
+        console.log(this.board);
+        let possibleMoves = this.getValidMoves(initial[0], initial[1]);
+        possibleMoves = possibleMoves.filter(move => JSON.stringify(final) === JSON.stringify(move));
+        if(possibleMoves.length) {
+            this.board[final[0]][final[1]].piece = this.board[initial[0]][initial[1]].piece;
+            this.board[initial[0]][initial[1]].piece = null;
+        }
+    }
+
+
     
     getBoard(): Square[][] {
         return this.board;
@@ -71,31 +83,33 @@ class Board {
     }
 
     getValidMoves(row: number, col: number) {
-        const moveCalculator = new MoveCalculator();
+        console.log(this.board);
+        const moveCalculator = new MoveCalculator(this.board);
         let moves: number[][];
 
         switch(this.board[row][col].piece.name) {
             case 'knight':
-            moves = moveCalculator.calculateKnightMoves(this.board, row, col);
+            moves = moveCalculator.calculateKnightMoves(row, col);
             break;
             
             case 'pawn':
-            moves = moveCalculator.calculatePawnMoves(this.board, row, col);
+            moves = moveCalculator.calculatePawnMoves(row, col);
             break;
 
             case 'bishop':
-            moves = moveCalculator.calculateBishopMoves(this.board, row, col);
+            moves = moveCalculator.calculateBishopMoves(row, col);
             break;
 
             case 'rook':
-            moves = moveCalculator.calculateRookMoves(this.board, row, col);
+            moves = moveCalculator.calculateRookMoves(row, col);
             break;
 
             case 'queen':
-            moves = moveCalculator.calculateQueenMoves(this.board, row, col);
+            moves = moveCalculator.calculateQueenMoves(row, col);
             break;
 
             case 'king':
+            moves = moveCalculator.calculateKingMoves(row, col);
             break;
         }
         return moves;
